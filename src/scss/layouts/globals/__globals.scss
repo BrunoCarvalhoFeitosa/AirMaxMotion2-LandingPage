@@ -1,0 +1,41 @@
+@import "./__mixins";
+@import "./__fonts";
+@import "./__colors";
+html,
+body {
+    @include px-for-rem(0, margin);
+    @include px-for-rem(0, padding);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    @include for-desktop {
+        height: 100vh;
+        overflow-y: hidden;
+    }
+    a {
+        text-decoration: none;
+    }
+    ul {
+        list-style: none;
+    }
+    button,
+    input {
+        border: none;
+        outline: none;
+    }
+    button {
+        cursor: pointer;
+    }
+     ::selection {
+        background: var(--selection);
+        color: var(--black);
+    }
+     ::-moz-selection {
+        background: var(--selection);
+        color: var(--black);
+    }
+    .is--active-nav {
+        left: 0;
+    }
+}

@@ -1,0 +1,116 @@
+@import "./__globals";
+@import "./__mixins";
+@import "./__fonts";
+@import "./__colors";
+.b-header {
+    position: fixed;
+    @include px-for-rem(0, top);
+    @include px-for-rem(0, left);
+    width: 100%;
+    z-index: 999;
+    &__nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include px-for-rem(1200, max-width);
+        @include px-for-rem(40, max-height);
+        @include px-for-rem(12, margin);
+        background: var(--white);
+        z-index: 99;
+        @include for-desktop {
+            margin: 0 1.25rem;
+            max-height: 2.5rem + 1rem;
+            max-width: 98%;
+            width: 98%;
+        }
+        &-toggle {
+            svg {
+                circle {
+                    stroke: var(--beige);
+                    @include transition(.45s ease);
+                }
+            }
+            @include for-desktop {
+                display: none;
+            }
+        }
+        &-brand {
+            svg {
+                path {
+                    fill: var(--beige);
+                    @include transition(.45s ease);
+                }
+            }
+            @include for-desktop {
+                svg {
+                    @include transform(scale(4.8) translate(20px, 10px));
+                    cursor: pointer;
+                }
+            }
+        }
+        &-menu {
+            @include for-mobile {
+                position: fixed;
+                @include px-for-rem(40, top);
+                left: -100%;
+                @include px-for-rem(32, padding);
+                width: 68%;
+                height: 100%;
+                background: var(--white);
+                @include transition(.45s);
+                z-index: 99;
+                background: var(--white);
+            }
+            ul {
+                @include for-desktop {
+                    display: flex;
+                }
+                li {
+                    @include px-for-rem(32, margin-bottom);
+                    @include for-desktop {
+                        &:last-of-type {
+                            a {
+                                text-decoration: line-through;
+                                color: var(--beige);
+                                @include transition(.45s ease);
+                                &:hover {
+                                    color: var(--beige);
+                                }
+                            }
+                        }
+                        @include px-for-rem(48, margin-right);
+                        @include px-for-rem(0, margin-bottom);
+                    }
+                    a {
+                        font-weight: 900;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        color: var(--black);
+                        &:hover {
+                            opacity: .65;
+                            @include transition(.5s opacity);
+                        }
+                        @include for-desktop {
+                            @include px-for-rem(14, font-size);
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+        &-shop {
+            svg {
+                path {
+                    fill: var(--beige);
+                    @include transition(.45s ease);
+                }
+            }
+            @include for-desktop {
+                svg {
+                    @include transform(translateX(-1rem));
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

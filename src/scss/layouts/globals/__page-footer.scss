@@ -1,0 +1,19 @@
+.b-footer {
+    position: absolute;
+    @include px-for-rem(0, bottom);
+    width: 100%;
+    @include for-mobile {
+        display: none;
+    }
+    &__phrase {
+        float: right;
+        @include transform(translate(-1.55rem, -.955rem));
+        >h5 {
+            @include px-for-rem(0, margin);
+            font-family: 'Shadows Into Light', cursive;
+            @include px-for-rem(66, font-size);
+            font-weight: lighter;
+            color: var(--gray-light);
+        }
+    }
+}

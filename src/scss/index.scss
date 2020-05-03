@@ -1,0 +1,256 @@
+@import "./layouts/globals/__globals";
+@import "./layouts/globals/__mixins";
+@import "./layouts/globals/__fonts";
+@import "./layouts/globals/__colors";
+@import "./layouts/globals/__page-header";
+@import "./layouts/globals/__page-footer";
+.b-main {
+    width: 100%;
+    &__container {
+        height: calc(100vh - 2.5rem);
+        display: grid;
+        grid-template-rows: 1.5fr 1fr;
+        grid-template-areas: 'sneaker';
+        overflow: hidden;
+        @include for-desktop {
+            height: 100vh;
+            grid-template-columns: max-content max-content;
+            grid-template-rows: max-content;
+            align-content: center;
+            justify-content: center;
+            @include px-for-rem(96, column-gap);
+        }
+        &-sneaker {
+            grid-area: sneaker;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 0 0;
+            position: relative;
+            &__rounded {
+                @include px-for-rem(240, width);
+                @include px-for-rem(240, height);
+                background: var(--beige);
+                border-radius: 50%;
+                @include transition(.45s ease);
+                @include for-desktop {
+                    @include px-for-rem(360, width);
+                    @include px-for-rem(360, height);
+                }
+            }
+            &__image {
+                >img {
+                    position: absolute;
+                    @include px-for-rem(300, width);
+                    top: 50%;
+                    left: 50%;
+                    @include transform(translate(-50%, -50%) rotate(30deg));
+                    @include filter(drop-shadow(0 2rem 2rem rgba(0, 0, 0, .4)));
+                    opacity: 0;
+                    @include animation(animationFloat 2s infinite);
+                    @include for-desktop {
+                        @include px-for-rem(480, width);
+                    }
+                }
+                .active {
+                    opacity: 1;
+                }
+            }
+            &__colors {
+                position: absolute;
+                right: 2%;
+                z-index: 9;
+                @include for-desktop {
+                    @include px-for-rem(-34, bottom);
+                }
+                >span {
+                    display: block;
+                    @include px-for-rem(40, width);
+                    @include px-for-rem(10, height);
+                    @include px-for-rem(14, border-radius);
+                    cursor: pointer;
+                    @include for-mobile {
+                        @include px-for-rem(6, width);
+                        @include px-for-rem(30, height);
+                        @include px-for-rem(6, margin-bottom);
+                    }
+                    @include for-desktop() {
+                        display: inline-block;
+                        @include px-for-rem(8, margin-right);
+                    }
+                    &.active {
+                        border: .125rem solid var(--white);
+                        box-shadow: 0 0 .105rem rgba(0, 0, 0, 1);
+                    }
+                }
+                &-one {
+                    background: var(--beige-secondary);
+                    border: 2px solid var(--beige-secondary);
+                    @include transition(.45s ease);
+                }
+                &-two {
+                    background: var(--black);
+                    border: 2px solid var(--black);
+                }
+            }
+        }
+        &-about {
+            @include px-for-rem(24, margin-bottom);
+            padding: 0 .75rem;
+            @include for-desktop {
+                @include px-for-rem(450, max-width);
+                align-self: center;
+            }
+            &__text {
+                span {
+                    font-family: 'Teko', sans-serif;
+                    @include px-for-rem(18, font-size);
+                    font-weight: 500;
+                }
+                h1 {
+                    font-family: 'Teko', sans-serif;
+                    @include px-for-rem(24, font-size);
+                    font-weight: 500;
+                    @include px-for-rem(0, margin);
+                }
+                p {
+                    @include px-for-rem(15, font-size);
+                }
+            }
+            &__actions {
+                display: flex;
+                justify-content: space-between;
+                &-sizes {
+                    >h3 {
+                        @include px-for-rem(15, font-size);
+                        @include px-for-rem(10, margin-bottom);
+                    }
+                    &__content {
+                        display: flex;
+                        >span {
+                            @include px-for-rem(8, margin-right);
+                            @include px-for-rem(30, width);
+                            @include px-for-rem(30, height);
+                            @include px-for-rem(12, font-size);
+                            text-align: center;
+                            @include px-for-rem(30, line-height);
+                            @include px-for-rem(4, border-radius);
+                            cursor: pointer;
+                            @include for-desktop {
+                                @include px-for-rem(34, width);
+                                @include px-for-rem(34, height);
+                                @include px-for-rem(35, line-height);
+                            }
+                            &.active {
+                                background: var(--beige);
+                                color: var(--white);
+                                @include transition(.45s ease);
+                            }
+                        }
+                    }
+                }
+                &-qty {
+                    >h3 {
+                        @include px-for-rem(15, font-size);
+                        @include px-for-rem(10, margin-bottom);
+                    }
+                    &__content {
+                        @include px-for-rem(100, width);
+                        @include px-for-rem(16, height);
+                        @include px-for-rem(8, padding);
+                        @include px-for-rem(4, border-radius);
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        background: var(--beige);
+                        color: var(--white);
+                        @include transition(.45s ease);
+                        >span {
+                            font-family: 'Teko', sans-serif;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            &__price {
+                position: fixed;
+                @include px-for-rem(0, bottom);
+                @include px-for-rem(0, left);
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 100%;
+                @include px-for-rem(82, height);
+                background: var(--white);
+                border-radius: 1.5rem 1.5rem 0 0;
+                box-shadow: 0 0 1.25rem rgba(15, 15, 15, .25);
+                @include for-desktop {
+                    @include px-for-rem(40, margin-top);
+                    position: initial;
+                    background: initial;
+                    justify-content: space-between;
+                    box-shadow: none;
+                }
+                >h2 {
+                    font-family: 'Teko', serif;
+                    @include px-for-rem(20, font-size);
+                    font-weight: 700;
+                    color: var(--black);
+                    @include for-desktop {
+                        @include px-for-rem(28, font-size);
+                        font-weight: 900;
+                    }
+                    >span {
+                        position: relative;
+                        @include px-for-rem(12, top);
+                        @include px-for-rem(40, font-size);
+                    }
+                }
+                >button {
+                    padding: 1.25rem 1.35rem;
+                    background: var(--beige);
+                    text-transform: uppercase;
+                    color: var(--white);
+                    @include px-for-rem(8, border-radius);
+                    @include transition(.45s ease);
+                }
+            }
+        }
+    }
+    &__overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        left: 0%;
+        z-index: 99999;
+        overflow: hidden;
+        &.first {
+            background: var(--beige);
+            width: 33.3%;
+        }
+        &.second {
+            background: var(--beige);
+            left: 33.3%;
+            @include for-mobile {
+                left: 32%;
+                svg {
+                    position: absolute;
+                    top: 38%;
+                    @include px-for-rem(150, width);
+                }
+            }
+            @include for-desktop {
+                svg {
+                    position: absolute;
+                    top: 38%;
+                    @include px-for-rem(450, width);
+                }
+            }
+        }
+        &.third {
+            background: var(--beige);
+            left: 66.6%;
+        }
+    }
+}

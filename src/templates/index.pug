@@ -1,0 +1,40 @@
+include subtemplates/__page-header.pug
+main.b-main
+    div.b-main__container
+        div.b-main__container-sneaker
+            div.b-main__container-sneaker__rounded
+            div.b-main__container-sneaker__image
+                img(src="../images/imageAirMotion01.png", alt="", title="", class="b-sneaker-image active", color="#CD9B9B")/
+                img(src="../images/imageAirMotion02.png", alt="", title="", class="b-sneaker-image", color="#111111")/
+            div.b-main__container-sneaker__colors
+                span(class="b-main__container-sneaker__colors-one active", primary="#CD9B9B", color="#CD9B9B")
+                span(class="b-main__container-sneaker__colors-two", primary="#111111", color="#111111")
+        div.b-main__container-about
+            div.b-main__container-about__text
+                span Nike
+                h1 Air Motion 2
+                p O tênis Nike Air Motion 2 é extravagante no conceito conforto e uniformidade, este calçado é perfeito para os impactos diários.
+            div.b-main__container-about__actions
+                div.b-main__container-about__actions-sizes
+                    h3 Tamanhos
+                    div.b-main__container-about__actions-sizes__content
+                        span.b-size(class="active") 38
+                        span.b-size 40
+                        span.b-size 42
+                        span.b-size 44
+                div.b-main__container-about__actions-qty
+                    h3 Quantidade
+                    div.b-main__container-about__actions-qty__content
+                        span -
+                        span 1
+                        span +
+            div.b-main__container-about__price
+                h2 R$
+                    span 499.99
+                button(type="button") Colocar na Sacola                
+    div.b-main__overlay.first
+    div.b-main__overlay.second
+        svg(viewbox="0 0 40 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+            path(d="M22.4804 4.51489L19.9955 5.16737L13.1007 6.97233C10.6657 7.57481 8.53579 8.37729 6.48334 7.67481C3.69341 6.46984 3.74341 3.33492 5.82336 0C2.14595 3.03492 -4.47139 12.7397 4.47839 13.7197C5.61836 13.8697 7.64831 13.4697 9.85325 12.5422L19.9955 8.37979L40 0.199995L22.4804 4.51489Z" fill="rgba(255, 255, 255, .3)")
+    div.b-main__overlay.third
+include subtemplates/__page-footer.pug

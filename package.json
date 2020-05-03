@@ -1,0 +1,22 @@
+{
+    "name": "nikeAirMotion",
+    "version": "1.0.0",
+    "description": "",
+    "main": "gulpfile.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "gulp"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "browser-sync": "^2.26.7",
+        "gulp": "^4.0.2",
+        "gulp-imagemin": "^7.1.0",
+        "gulp-imagemin-quiet": "^2.3.2",
+        "gulp-pug": "^4.0.1",
+        "gulp-sass": "^4.1.0",
+        "gulp-uglify-es": "^2.0.0"
+    }
+}
