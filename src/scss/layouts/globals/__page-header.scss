@@ -99,16 +99,37 @@
             }
         }
         &-shop {
-            svg {
-                path {
-                    fill: var(--beige);
-                    @include transition(.45s ease);
+            display: flex;
+            &__bag-icon {
+                svg {
+                    path {
+                        fill: var(--beige);
+                        @include transition(.45s ease);
+                    }
+                }
+                @include for-desktop {
+                    svg {
+                        @include transform(translateX(-1rem));
+                        cursor: pointer;
+                    }
                 }
             }
-            @include for-desktop {
-                svg {
-                    @include transform(translateX(-1rem));
-                    cursor: pointer;
+            &__bag-qty {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include transform(translate(-15px, -6px));
+                @include px-for-rem(18, min-width);
+                @include px-for-rem(18, width);
+                @include px-for-rem(18, min-height);
+                @include px-for-rem(18, height);
+                border-radius: 50%;
+                background: var(--beige);
+                cursor: pointer;
+                >span {
+                    @include px-for-rem(11, font-size);
+                    font-weight: bold;
+                    color: var(--white);
                 }
             }
         }
