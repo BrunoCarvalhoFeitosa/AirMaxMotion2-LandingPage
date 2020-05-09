@@ -64,9 +64,63 @@ const nike_SelectSizes = () => {
     colors.forEach(c => c.addEventListener("click", changeColors));
 };
 
+//Function to add cart
+let nike_CalculateCart = () => {
+    let carts = document.querySelectorAll("a.add-to-cart");
+
+    //Loop to add products
+    for (let i = 0; i < carts.length; i++) {
+        carts[i].addEventListener("click", () => {
+            nike_SetProductQuantity();
+        });
+    };
+
+    //Function to set value of quantity products in cart on load of page
+    function nike_GetOnLoadProductQuantity() {
+        let quantity = localStorage.getItem("cartQuantity");
+
+        if (quantity) {
+            document.querySelector(".b-header__nav-shop__bag-qty span").textContent = quantity;
+        };
+    };
+
+    //Function to display a text Adding to bag... in buy button
+    const nike_SetTextInBuyButton = () => {
+        carts.forEach((button) => {
+            button.addEventListener("click", () => {
+                setTimeout(() => {
+                    button.textContent = "Adicionando à sacola...";
+                    setTimeout(() => {
+                        button.textContent = "Colocar na sacola";
+                    }, 1200);
+                }, 800);
+            });
+        });
+    };
+
+    //Function to calculate quantity products in cart
+    function nike_SetProductQuantity() {
+        let quantity = localStorage.getItem("cartQuantity");
+        quantity = Number(quantity);
+
+        if (quantity) {
+            localStorage.setItem("cartQuantity", quantity + 1);
+            document.querySelector(".b-header__nav-shop__bag-qty span").textContent = quantity + 1;
+        } else {
+            localStorage.setItem("cartQuantity", 1);
+            document.querySelector(".b-header__nav-shop__bag-qty span").textContent = 1;
+        }
+    };
+
+    nike_GetOnLoadProductQuantity();
+    nike_SetTextInBuyButton();
+};
+
+
 //Function to execute in batch all other function in load of page
 document.addEventListener("DOMContentLoaded", () => {
     nike_IntroductionAnimation();
     nike_SelectSizes();
     nike_OpenMenu();
+    nike_CalculateCart();
 });

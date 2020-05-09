@@ -42,14 +42,18 @@
                 >img {
                     position: absolute;
                     @include px-for-rem(300, width);
-                    top: 50%;
-                    left: 50%;
-                    @include transform(translate(-50%, -50%) rotate(30deg));
+                    top: 30%;
+                    left: 14%;
                     @include filter(drop-shadow(0 2rem 2rem rgba(0, 0, 0, .4)));
+                    @include animation(shakeAnimation 1.5s infinite);
                     opacity: 0;
-                    @include animation(animationFloat 2s infinite);
+                    cursor: zoom-in;
+                    cursor: -moz-zoom-in;
+                    cursor: -webkit-zoom-in;
                     @include for-desktop {
-                        @include px-for-rem(480, width);
+                        @include px-for-rem(590, width);
+                        top: 12%;
+                        left: -28%;
                     }
                 }
                 .active {
@@ -104,13 +108,16 @@
             &__text {
                 span {
                     font-family: 'Teko', sans-serif;
-                    @include px-for-rem(18, font-size);
+                    @include px-for-rem(19, font-size);
                     font-weight: 500;
+                    @include px-for-rem(1, letter-spacing);
+                    @include px-for-rem(0, line-height);
                 }
                 h1 {
                     font-family: 'Teko', sans-serif;
-                    @include px-for-rem(24, font-size);
+                    @include px-for-rem(28, font-size);
                     font-weight: 500;
+                    @include px-for-rem(0.5, letter-spacing);
                     @include px-for-rem(0, margin);
                 }
                 p {
@@ -206,13 +213,25 @@
                         @include px-for-rem(40, font-size);
                     }
                 }
-                >button {
-                    padding: 1.25rem 1.35rem;
+                >a {
+                    padding: 1rem 1.35rem;
                     background: var(--beige);
                     text-transform: uppercase;
+                    @include px-for-rem(16, font-size);
                     color: var(--white);
                     @include px-for-rem(8, border-radius);
                     @include transition(.45s ease);
+                    cursor: pointer;
+                    @include for-desktop {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        @include px-for-rem(200, width);
+                        @include px-for-rem(26, height);
+                    }
+                    &.cart2 {
+                        display: none;
+                    }
                 }
             }
         }
